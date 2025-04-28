@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+article {
+    background-color: rgb(52, 100, 156);
+    border-radius: 1rem;
+    padding: 2rem;
+    color: white;
+    width: 80%;
+    margin: 10vh auto;
+}
+
+h2 {
+    font-family: Georgia, Serif;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-family: Helvetica, Sans-Serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}

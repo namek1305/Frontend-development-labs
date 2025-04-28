@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Адаптивная таблица</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root{
+            --bg-body:  rgb(238,238,238);
+            --bg-head:  #2d2d2d;
+            --bg-row:   #ffffff;
+            --border:   #dcdcdc;
+        }
+        html,body{
+            margin:0;
+            background:var(--bg-body);
+            font-family:Helvetica, Arial, sans-serif;
+        }
+        table{
+            width:92%;
+            margin:40px auto;
+            border-collapse:collapse;
+            border:1px solid var(--border);
+            table-layout:fixed;
+            font-size:1.05rem;
+        }
+        thead th{
+            background:var(--bg-head);
+            color:#fff;
+            padding:12px 14px;
+            text-align:left;
+            font-weight:600;
+        }
+        tbody td{
+            padding:12px 14px;
+            border-top:1px solid var(--border);
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+        }
+        tbody tr:nth-child(even)  td{ background:var(--bg-row);  }
+        tbody tr:nth-child(odd) td{ background:var(--bg-body); }
+        @media (max-width:600px){
+            table{ width:90%; font-size:1rem; }
+            thead{ display:none; }
+
+            tbody tr{
+                display:block;
+                margin-bottom:14px;
+                border:1px solid var(--border);
+            }
+            tbody td{
+                display:flex;
+                width:100%;
+                border:none;
+                border-bottom:1px solid var(--border);
+                white-space:normal;
+                padding:8px 10px;
+            }
+            tbody td:last-child{ border-bottom:none; }
+            tbody td::before{
+                content:attr(data-label);
+                font-weight:700;
+                flex:0 0 115px;
+            }
+            tbody tr:nth-child(odd)  td{ background:var(--bg-row);  }
+            tbody tr:nth-child(even) td{ background:var(--bg-body); }
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Job Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td data-label="First Name">James</td>
+        <td data-label="Last Name">Matman</td>
+        <td data-label="Job Title">Chief&nbsp;Sandwich&nbsp;Eater</td>
+    </tr>
+    <tr>
+        <td data-label="First Name">Jon</td>
+        <td data-label="Last Name">Doe</td>
+        <td data-label="Job Title">Chief&nbsp;Executive&nbsp;Eater</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
